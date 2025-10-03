@@ -10,7 +10,6 @@ object PostsTable : Table("posts") {
     val content = text("content")
     val summary = text("summary").nullable()
     val coverImageUrl = varchar("cover_image_url", 512).nullable()
-    val tags = text("tags") // comma-separated for simplicity
     val category = varchar("category", 255).nullable()
     val updatedAt = timestamp("updated_at")
     val createdAt = timestamp("created_at")

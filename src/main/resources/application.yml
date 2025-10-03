@@ -14,8 +14,8 @@ spring:
       connection-timeout: 30000
 media:
   storage:
-    root: ${MEDIA_ROOT:/tmp/mydevlog}
-    publicBaseUrl: ${MEDIA_PUBLIC_BASE:https://example.com/files}
+    root: ${MEDIA_ROOT:/Users/files/devlog}
+    publicBaseUrl: ${MEDIA_PUBLIC_BASE:https://localhost:8080/files}
   limits:
     maxBytes: 5242880
   allowedMime:

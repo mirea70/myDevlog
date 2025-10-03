@@ -8,6 +8,8 @@ import javax.sql.DataSource
 import org.springframework.context.annotation.Bean
 import com.mydevlog.mydevlog.infrastructure.comment.table.CommentsTable
 import com.mydevlog.mydevlog.infrastructure.post.table.PostsTable
+import com.mydevlog.mydevlog.infrastructure.post.table.TagsTable
+import com.mydevlog.mydevlog.infrastructure.post.table.PostTagsTable
 
 @Configuration
 class ExposedConfig {
@@ -15,9 +17,9 @@ class ExposedConfig {
     @Bean
     fun exposedDatabase(dataSource: DataSource): Database {
         val db = Database.connect(dataSource)
-        // Auto-create comments and posts tables
+        // Auto-create comments, posts, tags tables
         transaction(db) {
-            SchemaUtils.createMissingTablesAndColumns(CommentsTable, PostsTable)
+            SchemaUtils.createMissingTablesAndColumns(CommentsTable, PostsTable, TagsTable, PostTagsTable)
         }
         return db
     }
